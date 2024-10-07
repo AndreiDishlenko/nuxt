@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node ./.output/server/index.mjs",
+    "start": "node .output/server/index.mjs > ./app.log 2>&1",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
