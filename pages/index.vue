@@ -5,9 +5,10 @@
     <div class="">Блок первой страницы 2</div>
     <div class="">Блок первой страницы 3</div>
     <div class="">Блок первой страницы 5</div>
-    <NuxtLink to="/about">
+    <a href="/about">About</a>
+    <!-- <NuxtLink to="/about">
         About page
-    </NuxtLink>
+    </NuxtLink> -->
     
     
     <!-- <NuxtLayout>

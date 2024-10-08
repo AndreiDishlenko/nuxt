@@ -4,12 +4,13 @@
         Это страница About
     </div>
     <div class="">
-        <NuxtLink to="/">На главную</NuxtLink>
+        <a href="/">На главную</a>
+        <!-- <NuxtLink to="/">На главную</NuxtLink> -->
     </div>
     <div class="">
         <NuxtLink :to="previousPage">Вернуться назад</NuxtLink>
     </div>
-       
+
 </template>
 
 <script setup>
