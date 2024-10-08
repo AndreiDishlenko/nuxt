@@ -1,7 +1,7 @@
 <template>
     
     <div class="">
-        Это страница About1
+        Это страница About2
     </div>
     <div class="">
         <a href="/">На главную</a>
