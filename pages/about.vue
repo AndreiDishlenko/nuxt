@@ -1,7 +1,7 @@
 <template>
     
     <div class="">
-        Это страница About
+        Это страница About1
     </div>
     <div class="">
         <a href="/">На главную</a>
@@ -14,10 +14,10 @@
 </template>
 
 <script setup>
-    import { useRoute } from 'vue-router';
+    // import { useRoute } from 'vue-router';
 
-    const route = useRoute();
-    const previousPage = route.query.from || '/'; 
+    // const route = useRoute();
+    // const previousPage = route.query.from || '/'; 
 </script>
 
 <script>

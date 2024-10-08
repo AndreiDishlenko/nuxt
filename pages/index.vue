@@ -5,7 +5,7 @@
     <div class="">Блок первой страницы 2</div>
     <div class="">Блок первой страницы 3</div>
     <div class="">Блок первой страницы 5</div>
-    <a href="/about">About</a>
+    <a href="/about">About1</a>
     <!-- <NuxtLink to="/about">
         About page
     </NuxtLink> -->
