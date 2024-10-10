@@ -5,7 +5,7 @@
     <div class="top-line">
         <div class="d-flex justify-content-between container">
             <div class="flex-grow-1 bold-1 ">
-                <Icon name="ri:telegram-2-line" size="1em" class="me-1"/>Київ
+                <Icon name="ri:telegram-2-line" size="1em" class="me-1"/>Київ1
             </div>
             <div class="flex-grow-2 d-none d-lg-block text-center f-2">Більш ніж 5 років ми виробляємо ті самі конструкції з металу, які всім потрібні</div>
             <div class="flex-grow-1 bold-1 text-end flex-grow-1">+38(067) 777-77-77</div>

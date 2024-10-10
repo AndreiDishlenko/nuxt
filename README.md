@@ -4,3 +4,6 @@ Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introdu
 # Bootstrap
 npm install bootstrap@5.3.0
 npm install @popperjs/core
+
+
+NODE_OPTIONS=--max-old-space-size=4096 npm run build
