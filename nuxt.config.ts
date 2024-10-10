@@ -4,11 +4,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     compatibilityDate: '2024-10-08',
-    build: {
-        parallel: false,
-        cache: false, // Отключение кэша для избежания конфликтов
-        hardSource: false, // Может помочь избежать конфликтов с памятью
-    },
+    // build: {
+    //     parallel: false,
+    //     cache: false, // Отключение кэша для избежания конфликтов
+    //     hardSource: false, // Может помочь избежать конфликтов с памятью
+    // },
     vite: {
         css: {
           preprocessorOptions: {
