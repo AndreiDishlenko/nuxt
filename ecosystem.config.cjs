@@ -1,12 +1,11 @@
-module.exports = {
-    apps: [
-      {
-        name: 'nuxtff.com',
-        port: '3000',
-        exec_mode: 'cluster',
-        instances: 'max',
-        script: './.output/server/index.mjs'
+// app.config.ts
+export default defineAppConfig({
+    icon: {
+      size: '24px', // default <Icon> size applied
+      class: 'icon', // default <Icon> class applied
+      mode: 'css', // default <Icon> mode applied
+      aliases: {
+        'myicon': '/icons/telegram.svg',
       }
-    ]
-  }
-  
+    }
+})  

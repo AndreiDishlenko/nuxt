@@ -1,0 +1,52 @@
+@import "_variables.scss";
+// @import 'bootstrap/scss/bootstrap';
+
+@import "fonts.scss";
+@import "basestyles.scss";
+@import "colors.scss";
+@import "bootstrap.scss";
+
+body {
+    background-color: #fafafa;
+}
+
+// Flex
+.v-flex {
+    display: flex;
+    flex-direction: column;
+}
+.d-center {
+    display: flex;
+    justify-content: center ;
+}
+.v-center {
+    display: flex;
+    align-items: center;
+}
+
+// Sizes
+.vh-height {
+    height: 100dvh;
+}
+.vh-height-75 {
+    height: 75dvh;
+}
+.vh-height-50 {
+    height: 50dvh;
+}
+.vh-height-25 {
+    height: 25dvh;
+}
+
+// Other
+.action-button {
+    background-color: #ECEF3F;
+    border:0px;
+    padding: 2rem 2rem 2rem 2rem;
+    border-radius: 0.5rem;
+}
+
+.apple-shadow {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), /* Мягкая, основная тень */
+                0 1px 3px rgba(0, 0, 0, 0.08); /* Более маленькая и насыщенная тень */
+}
