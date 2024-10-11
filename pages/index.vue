@@ -1,11 +1,11 @@
 <template>
 
 <!-- Popup menu -->
-<div :class="['popup-menu', 'apple-shadow', isMenuVisible ? '' : 'collapsed']">
+<!-- <div :class="['popup-menu', 'apple-shadow', isMenuVisible ? '' : 'collapsed']">
     <div class="top-line">
         <div class="d-flex justify-content-between container">
             <div class="flex-grow-1 bold-1 ">
-                <Icon name="ri:telegram-2-line" size="1em" class="me-1"/>Київ1
+                <Icon name="ri:telegram-2-line" size="1em" class="me-1"/>Київ
             </div>
             <div class="flex-grow-2 d-none d-lg-block text-center f-2">Більш ніж 5 років ми виробляємо ті самі конструкції з металу, які всім потрібні</div>
             <div class="flex-grow-1 bold-1 text-end flex-grow-1">+38(067) 777-77-77</div>
@@ -27,7 +27,11 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
+
+<PopupMenu :content="mainMenu"/>
+
+<SideMenu ref="sidemenu" :content="mainMenu"/>
 
 <div class="wrapper">
 
@@ -39,17 +43,14 @@
             <div class="header p-0">
                 <div class="logo"><NuxtImg src="/img/logo_header.png" alt="Steel Master логотип" height="49px"/></div>
                 <div class="items d-none d-lg-flex">
-                    <a href="#about" class="f-2">О компанії</a>
-                    <a href="#services" class="f-2">Послуги</a>
-                    <a href="#product" class="f-2">Виробництво</a>
-                    <a href="#project" class="f-2">Проектування</a>
+                    <a v-for="item in mainMenu" :href="item.href" class="f-2">{{ $t(item.text) }}</a>
                 </div>
                 <div class="location d-flex align-items-center justify-content-end text-end flex-grow-1">
                         <Icon name="ri:telegram-2-line" size="1rem" class="pe-4" style="color: yellow;" />
                         <div class="ps-2 me-3 bold-1 ">Київ</div>
                         <LangSelector class="pe-3"/>
                         <!-- <div class="d-md-none"> -->
-                            <Icon name="stash:burger-classic" class="d-lg-none"/>
+                        <Icon name="stash:burger-classic" class="burger-button d-lg-none" @click="$refs.sidemenu.switch()"/>
                         <!-- </div> -->
                         
                 </div>                
@@ -57,7 +58,7 @@
             </div>
 
             <!-- Benefits -->
-            <div class="benefits bigger w-100 w-lg-75 w-xl-50">
+            <div class="v-flex d-sm-flex benefits bigger w-100 w-lg-75 w-xl-50">
                 <div class="f2 thin-1">Від 2 тижднів<div class="separator mt-2"></div></div>
                 <div class="f2 thin-1">Від 5000 грн<div class="separator mt-2"></div></div>
                 <div class="f2 thin-1">Гарантія від 5 років<div class="separator mt-2"></div></div>
@@ -112,104 +113,64 @@
 
 <script setup>
     definePageMeta({
-        layout: 'mainpage',
+        layout: 'mainpage'
     });
+    const i18nHead = useLocaleHead({
+        addSeoAttributes: {
+            // canonicalQueries: ['foo']
+        }
+    });
+
     useHead({
-        htmlAttrs: {
-            lang: 'uk' // Указываем украинский язык для всего приложения
-        },
         title: 'Home',
-        meta: [
-            { name: 'description', content: 'Это описание главной страницы моего сайта.' },
-            { name: 'keywords', content: 'сайт, главная, nuxt 3' },
-        ],
+        htmlAttrs: {
+            lang: i18nHead.value.htmlAttrs.lang
+        },
+        link: [...(i18nHead.value.link || [])],
+        meta: [...(i18nHead.value.meta || [])]
+    //     meta: [
+    //         { name: 'description', content: 'Это описание главной страницы моего сайта.' },
+    //         { name: 'keywords', content: 'сайт, главная, nuxt 3' },
+    //     ],
+
     });
+
 </script>
 
 <script>
-    import { ref } from 'vue'
     import LangSelector from '~/components/langselector.vue'
+    import PopupMenu from '~/components/popupmenu.vue'
+    import SideMenu from '~/components/sidemenu.vue'
+    
     export default {
         components: {
-            LangSelector
+            LangSelector, PopupMenu, SideMenu
         },
         data: function() {
             return {
-                language: 'uk',
-                langs: ['uk', 'ru'],
+                mainMenu: [
+                    {text: 'О компанії', href: '#about'},
+                    {text: 'Послуги', href: '#services'},
+                    {text: 'Виробництво', href: '#product'},
+                    {text: 'Проектування', href: '#project'},
+                ],
 				isMenuVisible : false,
             }
         },
         mounted: function() {
             console.log('mounted');
-            window.addEventListener('scroll', this.handleScroll);
-            this.getDefaultLanguage();
+            
         },
         unmounted: function() {
-            console.log('unmounted');
-            window.removeEventListener('scroll', this.handleScroll);
+            // console.log('unmounted');
         },
         methods: {
-            handleScroll: function() {
-                this.isMenuVisible = window.scrollY > 200;
-            },
-            getDefaultLanguage: function() {
-                // console.log('getDefaultLanguage');                
-                let result = localStorage.getItem('language');
-
-                if (!result || !this.langs.includes(result))
-                    result = 'uk';
-
-                this.language = result;
-            }
         }
     }
 </script>
 
 <style lang="scss">
     @import '@/assets/styles/variables';
-
-    .popup-menu {
-        position: fixed;
-        top: 0px;
-        transition: top 0.5s ease 0s;
-
-        width: 100%;
-        height: 100px; 
-        z-index: 100;
-        
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items:stretch;
-        
-        padding-left: $wrapper-spacing;
-        padding-right: $wrapper-spacing;
-        
-        border-bottom-left-radius: $blocks-radius;   
-        border-bottom-right-radius: $blocks-radius;   
-        a {
-            color: black!important;
-            font-weight: 600;
-        }
-        .top-line {
-            height: 35px;
-            display: flex;
-            align-items: center;
-            background-color: $secondary-background;
-            color: white;
-        }
-        .menu-line {
-            background-color: #cccccc;
-            height: 65px;     
-            border-bottom-left-radius: $blocks-radius;   
-            border-bottom-right-radius: $blocks-radius;   
-        }
-    }
-    .popup-menu.collapsed {
-        top: -100px!important;
-        transition: top 0.5s ease 0s;
-    }
 
     .wrapper {
         border-radius: $wrapper-radius;
@@ -251,10 +212,13 @@
                 width: 25%;
                 justify-content: end;
             }
+
+            .burger-button {
+                cursor: pointer;
+            }
         }
 
         .benefits {
-            display: flex;
             justify-content: space-between;
 
             .separator {

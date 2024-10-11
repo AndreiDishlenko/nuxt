@@ -27,10 +27,11 @@ export default defineNuxtConfig({
             titleTemplate: '%s | Steel Master',
             charset: 'utf-8',
             viewport: 'width=device-width, initial-scale=1',
+            // meta: [{name: 'robots', content: 'index, follow'}],
             bodyAttrs: {class: 'body'},
         }
     },
-    modules: ['@nuxt/image', '@nuxtjs/google-fonts', '@nuxt/icon'],
+    modules: ['@nuxt/image', '@nuxtjs/google-fonts', '@nuxt/icon', '@nuxtjs/i18n', ],
     googleFonts: {
         families: {
             Montserrat: {
@@ -51,22 +52,37 @@ export default defineNuxtConfig({
         //       dir: './assets/myicons'
         //     },
         // ],
+    },
+    i18n: {
+        baseUrl: 'https://yourdomain.com', // ! It necessary
+        strategy: 'prefix_except_default', 
+        lazy: true,
+        langDir: 'locales/',
+        locales: [
+            {
+                code: 'uk',
+                name: 'Українська',
+                language: 'uk-UA',
+                file: 'uk.json',
+                icon: 'emojione:flag-for-ukraine',
+                
+            },
+            {
+                code: 'ru',
+                name: 'Русский',
+                language: 'ru-Ru',
+                file: 'ru.json',
+                icon: 'emojione:flag-for-russia',
+                isCatchallLocale: true
+            }
+        ],     
+        defaultLocale: 'uk',        
+        vueI18n: './i18n.config.ts',
+        // detectBrowserLanguage: {
+        //     useCookie: true,
+        //     cookieKey: 'i18n_redirected',
+        //     alwaysRedirect: false,
+        //     fallbackLocale: 'en'
+        // },
     }
-    // app: {
-    //     head: {
-    //         title: 'Мой сайт',
-    //         meta: [
-    //             { name: 'description', content: 'Это описание моего сайта по умолчанию.' },
-    //             { name: 'keywords', content: 'сайт, nuxt 3, vue' },
-    //             { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-    //             { property: 'og:type', content: 'website' },
-    //             { property: 'og:title', content: 'Мой сайт' },
-    //             { property: 'og:description', content: 'Описание сайта для социальных сетей' }
-    //         ]
-    //     }
-    // }
-    // modules: ['bootstrap']
-    // provide: {
-    //     bootstrap: Modal
-    // }
 })

@@ -13,3 +13,11 @@ body {
 .border-grey {
     border-color: rgba(255, 255, 255, 0.25)!important;
 }
+
+a {
+    color: $dark!important;
+}
+
+a.dark {
+    color: #cccccc!important;
+}

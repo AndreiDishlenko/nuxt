@@ -10,16 +10,14 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
-  "dependencies": {
-
-  },
   "devDependencies": {
-    "sass-embedded": "^1.79.4",
     "@iconify-json/logos": "^1.2.3",
     "@nuxt/icon": "^1.5.5",
     "@nuxt/image": "^1.8.1",
     "@nuxtjs/google-fonts": "^3.2.0",
+    "@nuxtjs/i18n": "^8.5.5",
     "bootstrap": "^5.3.3",
-    "nuxt": "^3.13.0"
+    "nuxt": "^3.13.0",
+    "sass-embedded": "^1.79.4"
   }
 }

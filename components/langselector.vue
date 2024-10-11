@@ -2,53 +2,61 @@
 
 	<div class="lang-selector dropdown">
 
-		<button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			<!-- <span class="lang"> -->
-                <Icon v-if="language=='uk'" name="emojione:flag-for-ukraine"/>
-                <Icon v-if="language=='ru'" name="emojione:flag-for-russia"/>
-            <!-- </span> -->
-			<!-- <span class="flex-grow-1 me-2">{{ language.toUpperCase() }}</span> -->
+        <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <Icon v-if="locale=='uk'" name="emojione:flag-for-ukraine"/>
+            <Icon v-if="locale=='ru'" name="emojione:flag-for-russia"/>
 		</button>
 
 		<div class="dropdown-menu text-2">
-			<div class="dropdown-item" @click="setLang('uk')">
-                <Icon name="emojione:flag-for-ukraine"/>
-				<span class="flex-grow-1">Українська</span>
-			</div>
-			<div class="dropdown-item" @click="setLang('ru')">
-				<Icon name="emojione:flag-for-russia"/>
-				<span class="flex-grow-1">Російська</span>
+			<div v-for="item in locales" class="dropdown-item" @click="this.setLang(item.code)">
+                <Icon :name="item.icon"/>
+				<span class="flex-grow-1">{{ item.name }}</span>                
 			</div>
 		</div>
+
+        <!-- <div class="text-white">
+            <NuxtLink :to="switchLocalePath('uk')" class="text-white">uk</NuxtLink> | 
+            <NuxtLink :to="switchLocalePath('ru')" class="text-white">ru</NuxtLink>
+        </div> -->
 
 	</div>
 
 </template>
 
+
 <script>
+    import { ref } from 'vue'
+
 	export default {
-		data: function() {
+        data: function() {
             return {
-                language: '',
-                langs: ['uk', 'ru'],
+                locales: this.$i18n.locales,
+                locale: this.$i18n.locale,
             }
         },
 		async mounted() {
-            let result = localStorage.getItem('language');
-            console.log(result);
-            
-            if (!result || !this.langs.includes(result))
-                result = 'uk';
+            let result = localStorage.getItem('locale');
+            if (!result || !Object.values(this.locales).map(item => item.code).includes(result))
+                result;
 
-            this.language = result;
+            this.$i18n.setLocale(result);        
         },
 		methods: {			
-			setLang: function(lang) {
-                if (!lang || !this.langs.includes(lang))
+            getDefaultLanguage: function() {
+                // console.log('getDefaultLanguage');                
+                let result = localStorage.getItem('locale');
+
+                if (!result || !this.locales.includes(result))
+                    result = 'uk';
+
+                this.locale = result;
+            },
+			setLang: function(selected_locale) {
+                if (!selected_locale || !Object.values(this.locales).map(item => item.code).includes(selected_locale))
                     return;
 
-                this.language = lang;
-				localStorage.setItem('language', lang);
+				localStorage.setItem('locale', selected_locale);
+                this.$i18n.setLocale(selected_locale)
 			}
         },
 	}

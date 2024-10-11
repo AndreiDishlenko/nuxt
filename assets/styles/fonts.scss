@@ -6,12 +6,12 @@ body {
     color: red;
 }
 
-.f1 {font-size: 15px;}
-.f2 {font-size: 16px;}
-.f-1 {font-size:13px;}
-.f-2 {font-size:12px;}
-.f-3 {font-size:11px;}
-.f-4 {font-size:10px;}
+.f1 {font-size:  calc(13px + 2 * (100vw - 320px) / 1600);}
+.f2 {font-size:  calc(14px + 2 * (100vw - 320px) / 1600);}
+.f-1 {font-size: calc(11px + 2 * (100vw - 320px) / 1600);}
+.f-2 {font-size: calc(10px + 2 * (100vw - 320px) / 1600);}
+.f-3 {font-size: calc(9px + 2 * (100vw - 320px) / 1600);}
+.f-4 {font-size: calc(8px + 2 * (100vw - 320px) / 1600);}
 
 .thin-2 {font-weight: 100;}
 .thin-1 {font-weight: 200;}
@@ -23,7 +23,17 @@ body {
 .bold-5 {font-weight: 800;}
 .bold-6 {font-weight: 900;}
 
+h1 {
+    font-size: calc(26px + 30 * (100vw - 320px) / 1600);
+    font-weight: 900;
+    text-transform: uppercase;
+    // line-height: 110px;
+    letter-spacing: 1px;
+}
 
-.thinner {
+h3 {
+    font-size: 20px;
     font-weight: 200;
+    line-height: 26px;
+    letter-spacing: 1px;
 }

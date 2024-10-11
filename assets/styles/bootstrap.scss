@@ -1,4 +1,8 @@
 @media (min-width: 576px) {
+    .d-sm-flex {
+        display: flex;
+        flex-direction: row!important;
+    }
     .w-sm-0 {
       width: 0px !important;
     }
@@ -17,6 +21,10 @@
 }
 
 @media (min-width: 768px) {
+    .d-md-flex {
+        display: flex;
+        flex-direction: row!important;
+    }
     .w-md-0 {
       width: 0px !important;
     }
@@ -35,6 +43,10 @@
 }
 
 @media (min-width: 992px) {
+    .d-lg-flex {
+        display: flex;
+        flex-direction: row!important;
+    }
     .w-lg-0 {
       width: 0px !important;
     }
@@ -53,6 +65,10 @@
 }
 
 @media (min-width: 1200px) {
+    .d-xl-flex {
+        display: flex;
+        flex-direction: row!important;
+    }
     .w-xl-0 {
       width: 0px !important;
     }
