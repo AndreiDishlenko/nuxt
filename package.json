@@ -11,6 +11,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@iconify-json/emojione": "^1.2.0",
     "@iconify-json/logos": "^1.2.3",
     "@nuxt/icon": "^1.5.5",
     "@nuxt/image": "^1.8.1",

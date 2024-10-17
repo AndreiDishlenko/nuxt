@@ -59,7 +59,7 @@
 </script>
 
 <style lang="scss">
-    @import '@/assets/styles/variables';
+    // @use '@/assets/styles/variables';
 
     .popup-menu {
         position: fixed;
@@ -75,11 +75,11 @@
         justify-content: space-between;
         align-items:stretch;
         
-        padding-left: $wrapper-spacing;
-        padding-right: $wrapper-spacing;
+        padding-left: variables.$wrapper-spacing;
+        padding-right: variables.$wrapper-spacing;
         
-        border-bottom-left-radius: $blocks-radius;   
-        border-bottom-right-radius: $blocks-radius;   
+        border-bottom-left-radius: variables.$blocks-radius;   
+        border-bottom-right-radius: variables.$blocks-radius;   
         a {
             color: black!important;
             font-weight: 600;
@@ -88,14 +88,14 @@
             height: 35px;
             display: flex;
             align-items: center;
-            background-color: $secondary-background;
+            background-color: variables.$secondary-background;
             color: white;
         }
         .menu-line {
             background-color: #cccccc;
             height: 65px;     
-            border-bottom-left-radius: $blocks-radius;   
-            border-bottom-right-radius: $blocks-radius;   
+            border-bottom-left-radius: variables.$blocks-radius;   
+            border-bottom-right-radius: variables.$blocks-radius;   
         }
     }
     .popup-menu.collapsed {

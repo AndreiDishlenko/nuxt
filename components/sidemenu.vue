@@ -64,7 +64,7 @@
         position: fixed;        
         height: 100dvh;
         z-index: 100;
-        background: $dark-popup-background;
+        background: variables.$dark-popup-background;
 
         width: 70dvw;
         right: -70dvw;

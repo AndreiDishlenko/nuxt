@@ -1,11 +1,11 @@
-@import "_variables.scss";
+// @use "_variables.scss";
 // @import 'bootstrap/scss/bootstrap';
 
-@import "fonts.scss";
-@import "basestyles.scss";
-@import "colors.scss";
-@import "bootstrap.scss";
-@import "transition.scss";
+@use "fonts.scss";
+@use "basestyles.scss";
+@use "colors.scss";
+@use "bootstrap.scss";
+@use "transition.scss";
 
 body {
     background-color: #fafafa;

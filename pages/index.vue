@@ -232,8 +232,6 @@
 </script>
 
 <script>
-    
-    import LangSelector from '~/components/langselector.vue'
     import PopupMenu from '~/components/popupmenu.vue'
     import SideMenu from '~/components/sidemenu.vue'
     import MainBlock from '~/blocks/main.vue'
@@ -245,7 +243,7 @@
     
     export default {
         components: {
-            MainBlock, LangSelector, PopupMenu, SideMenu, Collage, Technologies, Carousel, WorkOrderBlock, SqueezeBlock
+            MainBlock, PopupMenu, SideMenu, Collage, Technologies, Carousel, WorkOrderBlock, SqueezeBlock
         },
         data: function() {
             return {
@@ -271,11 +269,11 @@
 </script>
 
 <style lang="scss">
-    @import '@/assets/styles/variables';
+    // @use '@/assets/styles/variables';
 
     .wrapper {
-        border-radius: $wrapper-radius;
-        margin: $wrapper-spacing;
+        border-radius: variables.$wrapper-radius;
+        margin: variables.$wrapper-spacing;
     }
 
 
@@ -297,7 +295,7 @@
     }
 
     .footer {
-        border-radius: $blocks-radius $blocks-radius $wrapper-radius $wrapper-radius;
+        border-radius: variables.$blocks-radius variables.$blocks-radius variables.$wrapper-radius variables.$wrapper-radius;
     }
     
 </style>

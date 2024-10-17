@@ -1,3 +1,5 @@
+@use "variables";
+
 body {
     background-color: #fafafa!important;
 }
@@ -19,7 +21,7 @@ body {
 }
 
 a {
-    color: $dark!important;
+    color: variables.$dark!important;
 }
 
 a.dark {

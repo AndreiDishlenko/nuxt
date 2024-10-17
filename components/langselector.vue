@@ -73,7 +73,7 @@
 		.dropdown-menu {
 			--bs-dropdown-font-size: 0.875rem;
 			min-width: 0px;
-            background-color: $dark-popup-background;
+            background-color: variables.$dark-popup-background;
             
 		}
         .dropdown-toggle::after {
@@ -81,13 +81,13 @@
         }
 		.dropdown-item {
 			/* color: inherit; */
-            color: $dark-main-text!important;
+            color: variables.$dark-main-text!important;
 			line-height: 3;
 			white-space: nowrap;
 			cursor:pointer;
 		}
 		.dropdown-item:hover {
-            background-color: $dark-popup-secondary-background;
+            background-color: variables.$dark-popup-secondary-background;
         }
 		img {
 			content: '';

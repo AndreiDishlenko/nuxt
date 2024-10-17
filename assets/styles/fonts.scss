@@ -1,9 +1,10 @@
+@use "variables";
 
 body {
     font-family: 'Montserrat', sans-serif;
     font-size: calc(13px + 2 * (100vw - 320px) / 1600);;
     font-weight: 300;
-    color: $main-text;
+    color: variables.$main-text;
 }
 
 .f1 {font-size:  calc(14px + 2 * (100vw - 320px) / 1600);}

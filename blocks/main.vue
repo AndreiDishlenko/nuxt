@@ -48,7 +48,12 @@
 </template>
 
 <script>
+    import LangSelector from '~/components/langselector.vue'
+
     export default {
+        components: {
+            LangSelector
+        },
         props: {
             header: {
 				type: Object,
@@ -60,12 +65,13 @@
 </script>
 
 <style lang="scss">
+
     .main-block {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        border-bottom-left-radius: $blocks-radius;   
-        border-bottom-right-radius: $blocks-radius;
+        border-bottom-left-radius: variables.$blocks-radius;   
+        border-bottom-right-radius: variables.$blocks-radius;
 
         background-image: url('/img/mainpage_background.png');
         background-size: 740px 598px; /* или contain, если нужно подогнать изображение */
@@ -119,4 +125,5 @@
         }
 
     }
+
 </style>
