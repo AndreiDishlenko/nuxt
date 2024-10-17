@@ -19,5 +19,8 @@
     "bootstrap": "^5.3.3",
     "nuxt": "^3.13.0",
     "sass-embedded": "^1.79.4"
+  },
+  "dependencies": {
+    "swiper": "^11.1.14"
   }
 }

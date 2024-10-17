@@ -31,7 +31,7 @@ export default defineNuxtConfig({
             bodyAttrs: {class: 'body'},
         }
     },
-    modules: ['@nuxt/image', '@nuxtjs/google-fonts', '@nuxt/icon', '@nuxtjs/i18n', ],
+    modules: ['@nuxt/image', '@nuxtjs/google-fonts', '@nuxt/icon', '@nuxtjs/i18n'],
     googleFonts: {
         families: {
             Montserrat: {

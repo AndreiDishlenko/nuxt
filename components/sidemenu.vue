@@ -64,7 +64,7 @@
         position: fixed;        
         height: 100dvh;
         z-index: 100;
-        background: #1f1f1f;
+        background: $dark-popup-background;
 
         width: 70dvw;
         right: -70dvw;

@@ -8,8 +8,8 @@
 		</button>
 
 		<div class="dropdown-menu text-2">
-			<div v-for="item in locales" class="dropdown-item" @click="this.setLang(item.code)">
-                <Icon :name="item.icon"/>
+			<div v-for="item in locales" class="d-flex align-items-center dropdown-item" @click="this.setLang(item.code)">
+                <Icon :name="item.icon" class="me-2"/>
 				<span class="flex-grow-1">{{ item.name }}</span>                
 			</div>
 		</div>
@@ -62,7 +62,7 @@
 	}
 </script>
 
-<style>
+<style lang="scss">
 	.lang-selector {
 
 		.dropdown-toggle {
@@ -73,18 +73,22 @@
 		.dropdown-menu {
 			--bs-dropdown-font-size: 0.875rem;
 			min-width: 0px;
+            background-color: $dark-popup-background;
+            
 		}
         .dropdown-toggle::after {
-            color: #cccccc!important;
             display: none;
         }
 		.dropdown-item {
 			/* color: inherit; */
+            color: $dark-main-text!important;
 			line-height: 3;
 			white-space: nowrap;
 			cursor:pointer;
 		}
-
+		.dropdown-item:hover {
+            background-color: $dark-popup-secondary-background;
+        }
 		img {
 			content: '';
 			width: 24px;

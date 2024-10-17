@@ -5,6 +5,7 @@
 @import "basestyles.scss";
 @import "colors.scss";
 @import "bootstrap.scss";
+@import "transition.scss";
 
 body {
     background-color: #fafafa;
@@ -25,25 +26,29 @@ body {
 }
 
 // Sizes
-.vh-height {
-    height: 100dvh;
-}
-.vh-height-75 {
-    height: 75dvh;
+.vh-height-25 {
+    min-height: 25dvh;
 }
 .vh-height-50 {
-    height: 50dvh;
+    min-height: 50dvh;
 }
-.vh-height-25 {
-    height: 25dvh;
+.vh-height-75 {
+    min-height: 75dvh;
+}
+.vh-height {
+    min-height: 100dvh;
 }
 
 // Other
 .action-button {
     background-color: #ECEF3F;
     border:0px;
-    padding: 2rem 2rem 2rem 2rem;
     border-radius: 0.5rem;
+    padding: 1rem 2rem 1rem 2rem;
+}
+
+.big-button {
+    padding: 2rem 2rem 2rem 2rem;
 }
 
 .apple-shadow {
