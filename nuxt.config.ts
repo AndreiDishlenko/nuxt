@@ -19,6 +19,12 @@ export default defineNuxtConfig({
           },
         },
     }, 
+    image: {
+        provider: 'ipx', // провайдер IPX
+        ipx: {
+            dir: 'public', // директория, где находятся изображения
+        },
+    },
     devtools: { enabled: false },
     ssr: true,
     css: ["bootstrap/dist/css/bootstrap.min.css", '~/assets/styles/_main.scss'],
@@ -54,7 +60,7 @@ export default defineNuxtConfig({
         // ],
     },
     i18n: {
-        baseUrl: 'https://yourdomain.com', // ! It necessary
+        baseUrl: 'https://tbk1.com.ua', // ! It necessary
         strategy: 'prefix_except_default', 
         lazy: true,
         langDir: 'locales/',
