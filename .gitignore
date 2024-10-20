@@ -1,7 +1,8 @@
 # Nuxt dev/build outputs
 .output
 .data
-.nuxt
+# .nuxt
+.osp
 .nitro
 .cache
 dist
