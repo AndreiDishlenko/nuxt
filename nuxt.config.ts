@@ -19,12 +19,12 @@ export default defineNuxtConfig({
           },
         },
     }, 
-    image: {
-        provider: 'ipx', // провайдер IPX
-        ipx: {
-            dir: 'public', // директория, где находятся изображения
-        },
-    },
+    // image: {
+    //     provider: 'ipx', // провайдер IPX
+    //     ipx: {
+    //         dir: 'public', // директория, где находятся изображения
+    //     },
+    // },
     devtools: { enabled: false },
     ssr: true,
     css: ["bootstrap/dist/css/bootstrap.min.css", '~/assets/styles/_main.scss'],
