@@ -1,4 +1,4 @@
-import { version, unref, inject, defineAsyncComponent, defineComponent, h, getCurrentInstance, computed, ref, provide, shallowReactive, watch, Suspense, nextTick, Fragment, Transition, hasInjectionContext, mergeProps, useSSRContext, createApp, effectScope, reactive, getCurrentScope, shallowRef, onErrorCaptured, onServerPrefetch, createVNode, resolveDynamicComponent, toRef, isReadonly, Text, withCtx, isRef, isShallow, isReactive, toRaw } from 'vue';
+import { version, unref, inject, defineAsyncComponent, defineComponent, h, getCurrentInstance, ref, computed, provide, shallowReactive, watch, Suspense, nextTick, Fragment, Transition, hasInjectionContext, mergeProps, useSSRContext, createApp, effectScope, reactive, getCurrentScope, toRef, isRef, shallowRef, onErrorCaptured, onServerPrefetch, createVNode, resolveDynamicComponent, isReadonly, Text, withCtx, isShallow, isReactive, toRaw } from 'vue';
 import { $ as $fetch$1, h as createError$1, l as klona, m as defu, n as sanitizeStatusCode, o as defuFn, p as createHooks, t as toRouteMatcher, q as createRouter$1, r as getRequestHeaders, v as parse$1, w as getRequestHeader, x as destr, y as isEqual$1, z as setCookie, A as getCookie, B as deleteCookie } from '../runtime.mjs';
 import { b as baseURL } from '../routes/renderer.mjs';
 import { getActiveHead, CapoPlugin } from 'unhead';
@@ -927,24 +927,24 @@ const _routes = [
   {
     name: "about___uk",
     path: "/about",
-    component: () => import('./about-bORovBfd.mjs')
+    component: () => import('./about-Bwsj4dhz.mjs')
   },
   {
     name: "about___ru",
     path: "/ru/about",
-    component: () => import('./about-bORovBfd.mjs')
+    component: () => import('./about-Bwsj4dhz.mjs')
   },
   {
     name: "index___uk",
     path: "/",
     meta: __nuxt_page_meta || {},
-    component: () => import('./index-CzWN_Gxq.mjs')
+    component: () => import('./index-DzMtxUXO.mjs')
   },
   {
     name: "index___ru",
     path: "/ru",
     meta: __nuxt_page_meta || {},
-    component: () => import('./index-CzWN_Gxq.mjs')
+    component: () => import('./index-DzMtxUXO.mjs')
   }
 ];
 const _wrapIf = (component, props, slots) => {
@@ -1276,7 +1276,7 @@ const revive_payload_server_eJ33V7gbc6 = /* @__PURE__ */ defineNuxtPlugin({
     }
   }
 });
-const LazyIcon = defineAsyncComponent(() => import('./index-Ck27dIWH.mjs').then((r) => r["default"] || r.default || r));
+const LazyIcon = defineAsyncComponent(() => import('./index-CYN3rzpR.mjs').then((r) => r["default"] || r.default || r));
 const lazyGlobalComponents = [
   ["Icon", LazyIcon]
 ];
@@ -1381,24 +1381,23 @@ function isHTTPS(req, trustProxy = true) {
   }
   return false;
 }
-const resource$1 = {
-  "About": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "О компанії" } },
-  "Welcome": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Добро пожаловать" } }
-};
-const resource = {
-  "О компанії": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "О компании" } }
-};
 const localeCodes = [
   "uk",
   "ru"
 ];
 const localeLoaders = {
-  "uk": [{ key: "../locales/uk.json", load: () => Promise.resolve(resource$1), cache: true }],
-  "ru": [{ key: "../locales/ru.json", load: () => Promise.resolve(resource), cache: true }]
+  "uk": [{ key: "../locales/uk.json", load: () => import(
+    './uk-r3_5T_P-.mjs'
+    /* webpackChunkName: "locale_D_58_D_58_OpenServer_home_nuxt_locales_uk_json" */
+  ), cache: true }],
+  "ru": [{ key: "../locales/ru.json", load: () => import(
+    './ru-yEjxnx4s.mjs'
+    /* webpackChunkName: "locale_D_58_D_58_OpenServer_home_nuxt_locales_ru_json" */
+  ), cache: true }]
 };
 const vueI18nConfigs = [
   () => import(
-    './i18n.config-DfO9n2_v.mjs'
+    './i18n.config-CWH6Okvz.mjs'
     /* webpackChunkName: "__i18n_config_ts_bffaebcb" */
   )
 ];
@@ -1407,6 +1406,7 @@ const normalizedLocales = [
     "code": "uk",
     "name": "Українська",
     "language": "uk-UA",
+    "icon": "emojione:flag-for-ukraine",
     "files": [
       {
         "path": "D:/OpenServer/home/nuxt/locales/uk.json"
@@ -1417,6 +1417,8 @@ const normalizedLocales = [
     "code": "ru",
     "name": "Русский",
     "language": "ru-Ru",
+    "icon": "emojione:flag-for-russia",
+    "isCatchallLocale": true,
     "files": [
       {
         "path": "D:/OpenServer/home/nuxt/locales/ru.json"
@@ -3722,10 +3724,10 @@ function minify(node) {
   node.t = node.type;
   switch (node.type) {
     case 0: {
-      const resource2 = node;
-      minify(resource2.body);
-      resource2.b = resource2.body;
-      delete resource2.body;
+      const resource = node;
+      minify(resource.body);
+      resource.b = resource.body;
+      delete resource.body;
       break;
     }
     case 1: {
@@ -5451,12 +5453,12 @@ function getLocaleMessages(locale, options) {
   if (isArray(__i18n)) {
     __i18n.forEach((custom) => {
       if ("locale" in custom && "resource" in custom) {
-        const { locale: locale2, resource: resource2 } = custom;
+        const { locale: locale2, resource } = custom;
         if (locale2) {
           ret[locale2] = ret[locale2] || {};
-          deepCopy(resource2, ret[locale2]);
+          deepCopy(resource, ret[locale2]);
         } else {
-          deepCopy(resource2, ret);
+          deepCopy(resource, ret);
         }
       } else {
         isString(custom) && deepCopy(JSON.parse(custom), ret);
@@ -6407,6 +6409,29 @@ function injectGlobalFields(app, composer) {
 }
 registerMessageResolver(resolveValue);
 registerLocaleFallbacker(fallbackWithLocaleChain);
+function useLocaleHead({
+  addDirAttribute = false,
+  addSeoAttributes = false,
+  identifierAttribute = "hid"
+} = {}) {
+  const common = initCommonComposableOptions();
+  const metaObject = ref({
+    htmlAttrs: {},
+    link: [],
+    meta: []
+  });
+  function updateMeta() {
+    metaObject.value = localeHead(common, {
+      addDirAttribute,
+      addSeoAttributes,
+      identifierAttribute
+    });
+  }
+  {
+    updateMeta();
+  }
+  return metaObject;
+}
 function useSwitchLocalePath() {
   return wrapComposable(switchLocalePath);
 }
@@ -7138,8 +7163,8 @@ const plugins = [
   plugin_WLsn00x1qh
 ];
 const layouts = {
-  default: () => import('./default-Bu91EyGG.mjs'),
-  mainpage: () => import('./mainpage-C0p_1xI1.mjs')
+  default: () => import('./default-C6pjcMjw.mjs'),
+  mainpage: () => import('./mainpage-Ds4OVGZy.mjs')
 };
 const LayoutLoader = defineComponent({
   name: "LayoutLoader",
@@ -7434,8 +7459,8 @@ const _sfc_main$1 = {
     const statusMessage = _error.statusMessage ?? (is404 ? "Page Not Found" : "Internal Server Error");
     const description = _error.message || _error.toString();
     const stack = void 0;
-    const _Error404 = defineAsyncComponent(() => import('./error-404-BR19b4Lu.mjs'));
-    const _Error = defineAsyncComponent(() => import('./error-500-C25xlnBC.mjs'));
+    const _Error404 = defineAsyncComponent(() => import('./error-404-Dp6Tapw1.mjs'));
+    const _Error = defineAsyncComponent(() => import('./error-500-DSA6Xc_J.mjs'));
     const ErrorTemplate = is404 ? _Error404 : _Error;
     return (_ctx, _push, _parent, _attrs) => {
       _push(ssrRenderComponent(unref(ErrorTemplate), mergeProps({ statusCode: unref(statusCode), statusMessage: unref(statusMessage), description: unref(description), stack: unref(stack) }, _attrs), null, _parent));
@@ -7516,5 +7541,5 @@ let entry;
 }
 const entry$1 = (ssrContext) => entry(ssrContext);
 
-export { _export_sfc as _, navigateTo as a, useNuxtApp as b, useRuntimeConfig as c, withoutTrailingSlash as d, entry$1 as default, useRequestEvent as e, withLeadingSlash as f, parseURL as g, hasProtocol as h, encodeParam as i, joinURL as j, encodePath as k, useAppConfig as l, asyncDataDefaults as m, nuxtLinkDefaults as n, createError as o, parseQuery as p, injectHead as q, resolveRouteObject as r, resolveUnrefHeadInput as s, __nuxt_component_0 as t, useRouter as u, withTrailingSlash as w };
+export { _export_sfc as _, navigateTo as a, useNuxtApp as b, useRuntimeConfig as c, withoutTrailingSlash as d, entry$1 as default, useRequestEvent as e, withLeadingSlash as f, parseURL as g, hasProtocol as h, encodeParam as i, joinURL as j, encodePath as k, useLocaleHead as l, asyncDataDefaults as m, nuxtLinkDefaults as n, createError as o, parseQuery as p, useAppConfig as q, resolveRouteObject as r, injectHead as s, resolveUnrefHeadInput as t, useRouter as u, __nuxt_component_0 as v, withTrailingSlash as w };
 //# sourceMappingURL=server.mjs.map

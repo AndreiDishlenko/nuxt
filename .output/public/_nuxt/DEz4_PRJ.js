@@ -1,0 +1,1 @@
+import{_ as o,v as s,x as e,z as a,F as r,t as l,a7 as u}from"./CqRhCkBw.js";const p={};function _(d,t,f,m,c,x){const n=u;return l(),s(r,null,[t[0]||(t[0]=e("div",{class:""},[e("b",null,"Основной шаблон1")],-1)),t[1]||(t[1]=e("header",null,"Это шапка сайта",-1)),a(n),t[2]||(t[2]=e("footer",null,"Это подвал сайта1",-1))],64)}const $=o(p,[["render",_]]);export{$ as default};

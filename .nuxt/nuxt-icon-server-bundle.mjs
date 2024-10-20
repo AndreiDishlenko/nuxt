@@ -1,5 +1,3 @@
-import { createRequire } from 'module'
-const require = createRequire(import.meta.url)
 function createRemoteCollection(fetchEndpoint) {
   let _cache
   return async () => {
@@ -12,6 +10,6 @@ function createRemoteCollection(fetchEndpoint) {
 }
 
 export const collections = {
-  'emojione': () => require('@iconify-json/emojione/icons.json'),
-  'logos': () => require('@iconify-json/logos/icons.json'),
+  'emojione': () => import('@iconify-json/emojione/icons.json', { with: { type: 'json' } }).then(m => m.default),
+  'logos': () => import('@iconify-json/logos/icons.json', { with: { type: 'json' } }).then(m => m.default),
 }
