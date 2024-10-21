@@ -45,12 +45,16 @@
 
         methods: {
             handleClickOutside: function(event) {
+                if (!this.$refs.menu)
+                    return false;
+
                 if (!this.$refs.menu.contains(event.target)) 
                     this.close();
             },
-            switch: function() {
+            open: function() {
                 // console.log('sidemenu.trigger', this.isOpened);
-                this.isOpened = !this.isOpened;
+                this.isOpened = true;
+                // this.isOpened = !this.isOpened;
             },
             close: function() {
                 this.isOpened = false;

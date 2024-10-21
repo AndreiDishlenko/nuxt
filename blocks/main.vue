@@ -1,5 +1,7 @@
 <template lang="">
 
+    <SideMenu ref="sidemenu" :content="header"/>
+
     <div class="main-block container py-5">
 
         <!-- Header -->
@@ -13,13 +15,12 @@
 
 
             <div class="location d-flex align-items-center justify-content-end text-end flex-grow-1">
-                    <Icon name="ri:telegram-2-line" size="1rem" class="pe-4" style="color: yellow;" />
-                    <div class="ps-2 me-3 bold-1 ">Київ</div>
-                    <LangSelector class="pe-3"/>
-                    <!-- <div class="d-md-none"> -->
-                    <Icon name="stash:burger-classic" class="burger-button d-lg-none" @click="$refs.sidemenu.switch()"/>
-                    <!-- </div> -->
-                    
+                <Icon name="ri:telegram-2-line" size="1rem" class="pe-4" style="color: yellow;" />
+                <div class="ps-2 me-3 bold-1 ">Київ</div>
+                <LangSelector class="pe-3"/>
+                <!-- <div class="d-md-none"> -->
+                <Icon name="stash:burger-classic" class="burger-button d-lg-none" @click="$refs.sidemenu.open()"/>
+                <!-- </div> -->
             </div>                
 
         </div>
@@ -49,10 +50,11 @@
 
 <script>
     import LangSelector from '~/components/langselector.vue'
+    import SideMenu from '~/components/sidemenu.vue'
 
     export default {
         components: {
-            LangSelector
+            LangSelector, SideMenu
         },
         props: {
             header: {

@@ -4,6 +4,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     compatibilityDate: '2024-10-08',
+    devServer: {
+        host: '0.0.0.0', // Это позволит серверу слушать все IP-адреса
+        port: 3000,      // Порт по умолчанию
+        https: false
+        // {
+        //     key: './.osp/localhost-key.pem',    // Путь к вашему приватному ключу
+        //     cert: './.osp/localhost-cert.crt',  // Путь к вашему сертификату
+        // },
+    },
     // build: {
     //     parallel: false,
     //     cache: false, // Отключение кэша для избежания конфликтов
@@ -60,7 +69,7 @@ export default defineNuxtConfig({
         // ],
     },
     i18n: {
-        baseUrl: 'https://tbk1.com.ua', // ! It necessary
+        baseUrl: 'https://localhost', // ! It necessary
         strategy: 'prefix_except_default', 
         lazy: true,
         langDir: 'locales/',

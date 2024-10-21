@@ -2,8 +2,6 @@
 
 <PopupMenu :content="mainMenu"/>
 
-<SideMenu ref="sidemenu" :content="mainMenu"/>
-
 <div class="wrapper">
 
     <!-- Main block -->
@@ -233,7 +231,6 @@
 
 <script>
     import PopupMenu from '~/components/popupmenu.vue'
-    import SideMenu from '~/components/sidemenu.vue'
     import MainBlock from '~/blocks/main.vue'
     import Collage from '~/components/collage.vue'
     import Technologies from '~/blocks/main_technologies.vue'
@@ -243,7 +240,7 @@
     
     export default {
         components: {
-            MainBlock, PopupMenu, SideMenu, Collage, Technologies, Carousel, WorkOrderBlock, SqueezeBlock
+            MainBlock, PopupMenu, Collage, Technologies, Carousel, WorkOrderBlock, SqueezeBlock
         },
         data: function() {
             return {
