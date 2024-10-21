@@ -69,7 +69,7 @@ export default defineNuxtConfig({
         // ],
     },
     i18n: {
-        baseUrl: 'https://localhost', // ! It necessary
+        baseUrl: 'https://tbk1.com.ua', // ! It necessary
         strategy: 'prefix_except_default', 
         lazy: true,
         langDir: 'locales/',
