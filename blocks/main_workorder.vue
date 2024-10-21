@@ -1,6 +1,6 @@
 <template lang="">
 
-    <div class="workorder mb-5">
+    <div class="mb-5">
 
         <div class="workorder-item pb-4 ps-8">
             1 етап
@@ -38,7 +38,6 @@
     <div class="text-center">
         <button class="action-button bold-2">Розрахувати</button>
     </div>
-    
 
 </template>
 

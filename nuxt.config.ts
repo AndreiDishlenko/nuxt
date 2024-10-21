@@ -39,7 +39,7 @@ export default defineNuxtConfig({
     css: ["bootstrap/dist/css/bootstrap.min.css", '~/assets/styles/_main.scss'],
     app: {
         head: {
-            titleTemplate: '%s | Steel Master',
+            titleTemplate: '%s | ТБК1',
             charset: 'utf-8',
             viewport: 'width=device-width, initial-scale=1',
             // meta: [{name: 'robots', content: 'index, follow'}],

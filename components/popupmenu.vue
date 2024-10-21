@@ -13,7 +13,7 @@
         <div class="menu-line f-3">
             <div class="h-100 d-flex justify-content-between align-items-center container">
                 <div class="w-25 d-none d-lg-block">
-                    <NuxtImg src="/img/logo_sm1_lightmode.png" alt="Steel Master логотип"/>
+                    <NuxtImg src="/img/logo_sm1_lightmode.png" alt="ТБК1 логотип"/>
                 </div>
                 <!-- Body -->
                 <div class="w-50 d-flex flex-grow-1 justify-content-between text-uppercase bold-1 text-black">

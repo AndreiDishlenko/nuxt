@@ -16,6 +16,11 @@ body {
     display: flex;
     flex-direction: column;
 }
+.f-center {
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+}
 .d-center {
     display: flex;
     justify-content: center ;
@@ -45,13 +50,21 @@ body {
     border:0px;
     border-radius: 0.5rem;
     padding: 1rem 2rem 1rem 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: calc(11px + 2 * (100vw - 320px) / 1600);
 }
 
 .big-button {
-    padding: 2rem 2rem 2rem 2rem;
+    padding: 1.5rem;
 }
 
 .apple-shadow {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), /* Мягкая, основная тень */
                 0 1px 3px rgba(0, 0, 0, 0.08); /* Более маленькая и насыщенная тень */
+}
+
+.bottom-hr {
+    border: 0px solid #e7e7e7;
+    border-bottom-width: 1px;
 }

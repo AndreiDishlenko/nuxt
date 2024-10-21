@@ -1,6 +1,6 @@
 <template lang="">
     <div class="v-flex d-md-flex mb-4">
-        <div class="v-flex w-100 w-md-50 pe-md-4 pe-lg-5 pb-4">
+        <div class="v-flex w-100 w-md-50 pe-md-4 pb-4">
             <div class="background-image p-3" style="background-image: url('/img/technologies/technology_1.png');"><h3>Зварювальні роботи</h3></div>
             <div class="p-3">
                 <b>Будь-які види зварювання</b><br>
@@ -11,7 +11,7 @@
                 понад 10 років досвіду роботи з різними матеріалами.<br>
             </div>
         </div>
-        <div class="v-flex w-100 w-md-50 ps-md-4 pe-lg-5 pb-4">
+        <div class="v-flex w-100 w-md-50 ps-md-4 pb-4">
             <div class="background-image p-3" style="background-image: url('/img/technologies/technology_2.png');"><h3>Порошкове фарбування</h3></div>
             <div class="p-3">
                 <b>Ідеально рівне покриття</b><br>

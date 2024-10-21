@@ -3,6 +3,7 @@
         <div class="divider"></div>
         <div class="photos collage-container w-100">
             <div class="text-2xl flex flex-col gap-y-4 items-center justify-center h-full w-100 pb-8">
+                <h2 class="">{{ $t('Приклади робот') }}</h2>
                 <p class="text-gray-400">
                     Ми пишаємося кожним виконаним проєктом і завжди орієнтуємось на результат, який перевершує очікування наших клієнтів. <br><br>
                     <!-- Перегляньте галерею наших завершених проєктів, щоб переконатися в нашій майстерності та досвіді. <br><br> -->

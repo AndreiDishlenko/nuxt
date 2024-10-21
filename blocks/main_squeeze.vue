@@ -1,6 +1,6 @@
 <template lang="">
 
-    <div class="squeeze w-75 d-flex bg-light">
+    <div class="squeeze d-flex bg-light">
         <div class="w-50 leftpart"></div>
         <div class="w-50 rightpart v-flex justify-content-between p-5">
             <h3 class="mb-4">УТОЧНИМО ДЕТАЛІ ПРОЄКТУ?</h3>
