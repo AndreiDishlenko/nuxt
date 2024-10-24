@@ -66,21 +66,6 @@
 			}
         },
         methods: {
-            sendTelegramNotification: async function(phone) {
-                const response = await fetch('https://api.telegram.org/bot7736147378:AAHajsSsiWUjCPvudsyBY1FCou4bvDhsFbs/sendMessage', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        chat_id: 520701986,
-                        text: `Заказ звонка на номер: ${phone}`
-                    })
-                });
-
-                console.log('tm answer', response.json);                
-                return response.json;
-            }
         }
     }
 </script>
