@@ -1,7 +1,15 @@
-@use "variables";
+@use "_variables.scss";
 
 body {
     background-color: #fafafa!important;
+}
+
+.main-color {
+    color: variables.$main-text!important;
+}
+
+.main-color-darkmode {
+    color: variables.$dark-main-text!important;
 }
 
 .bg-light {

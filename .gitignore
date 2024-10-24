@@ -5,6 +5,7 @@
 .osp
 .nitro
 .cache
+.backup
 dist
 
 # Node dependencies

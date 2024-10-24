@@ -58,6 +58,9 @@ export default defineNuxtConfig({
         size: '24px', // default <Icon> size applied    
         class: 'icon', // default <Icon> class applied
         mode: 'css', // default <Icon> mode applied
+        serverBundle: {
+            collections: ['ri', 'stash', 'material-symbols-light', 'emojione', 'logos'] // <!--- this
+        }
         // aliases: {
         //   'nuxt': 'logos:nuxt-icon',
         // },
@@ -69,7 +72,8 @@ export default defineNuxtConfig({
         // ],
     },
     i18n: {
-        baseUrl: 'https://tbk1.com.ua', // ! It necessary
+        // baseUrl: 'https://tbk1.com.ua', // ! It necessary
+        baseUrl: process.env.URL, 
         strategy: 'prefix_except_default', 
         lazy: true,
         langDir: 'locales/',
@@ -93,12 +97,13 @@ export default defineNuxtConfig({
         ],     
         defaultLocale: 'uk',        
         vueI18n: './i18n.config.ts',
-        detectBrowserLanguage: false
+        detectBrowserLanguage: false,
         // {
         //     useCookie: true,
         //     cookieKey: 'i18n_redirected',
         //     alwaysRedirect: false,
         //     fallbackLocale: 'en'
         // },
+
     }
 })

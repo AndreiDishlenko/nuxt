@@ -1,11 +1,14 @@
 // @use "_variables.scss";
 // @import 'bootstrap/scss/bootstrap';
-
-@use "fonts.scss";
-@use "basestyles.scss";
-@use "colors.scss";
 @use "bootstrap.scss";
+@use "basestyles.scss";
+@use "elements.scss";
+
+@use "colors.scss";
+
 @use "transition.scss";
+@use "fonts.scss";
+@use "forms.scss";
 
 body {
     background-color: #fafafa;
@@ -44,20 +47,7 @@ body {
     min-height: 100dvh;
 }
 
-// Other
-.action-button {
-    background-color: #ECEF3F;
-    border:0px;
-    border-radius: 0.5rem;
-    padding: 1rem 2rem 1rem 2rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: calc(11px + 2 * (100vw - 320px) / 1600);
-}
 
-.big-button {
-    padding: 1.5rem;
-}
 
 .apple-shadow {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), /* Мягкая, основная тень */

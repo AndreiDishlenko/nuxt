@@ -1,12 +1,22 @@
-$dark: #2F2E2E;
-$main-text: #2F2E2E;
+$font-size-base: calc(14px + 3 * (100vw - 320px) / 1600);
+$font-size-1: calc(13px + 3 * (100vw - 320px) / 1600);
+$font-size-2: calc(12px + 3 * (100vw - 320px) / 1600);
+$font-size-3: calc(11px + 3 * (100vw - 320px) / 1600);
+$font-size-4: calc(10px + 3 * (100vw - 320px) / 1600);
 
+$dark: #2F2E2E;
+
+$main-text: #2F2E2E;
 $dark-main-text: #ffffff;
+
 $dark-popup-background: #1f1f1f;
 $dark-popup-secondary-background: #383a3d;
 
 
 $secondary-background: #383a3d;
+
+$danger-color: #990000;
+
 
 $wrapper-spacing: 0rem;
 $wrapper-radius: 0rem;

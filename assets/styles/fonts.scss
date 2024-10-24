@@ -1,18 +1,18 @@
 @use "variables";
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    font-size: calc(13px + 2 * (100vw - 320px) / 1600);
+    font-family: 'Montserrat', 'Gilroy ExtraBold', sans-serif;
+    font-size: variables.$font-size-base;
     font-weight: 300;
     color: variables.$main-text;
 }
 
-.f1 {font-size:  calc(14px + 2 * (100vw - 320px) / 1600);}
-.f2 {font-size:  calc(15px + 2 * (100vw - 320px) / 1600);}
-.f-1 {font-size: calc(12px + 2 * (100vw - 320px) / 1600);}
-.f-2 {font-size: calc(11px + 2 * (100vw - 320px) / 1600);}
-.f-3 {font-size: calc(10px + 2 * (100vw - 320px) / 1600);}
-.f-4 {font-size: calc(9px + 2 * (100vw - 320px) / 1600);}
+.f1 {font-size:  calc(15px + 3 * (100vw - 320px) / 1600);}
+.f2 {font-size:  calc(16px + 3 * (100vw - 320px) / 1600)!important;}
+.f-1 {font-size: variables.$font-size-1;}
+.f-2 {font-size: variables.$font-size-2;}
+.f-3 {font-size: variables.$font-size-3;}
+.f-4 {font-size: variables.$font-size-4;}
 
 .thin-2 {font-weight: 100;}
 .thin-1 {font-weight: 200;}

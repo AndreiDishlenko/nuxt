@@ -1,12 +1,13 @@
 <template lang="">
 
     <SideMenu ref="sidemenu" :content="header"/>
+    <ModalFeedback ref="modal_feedback"/>
 
     <div class="main-block w-100">
 
-        <div class="container w-100 h-100 d-flex flex-column justify-content-between px-4 py-5">
+        <div class="container w-100 h-100 d-flex flex-column justify-content-between align-items-start px-4 py-5">
             <!-- Header -->
-            <div class="header p-0">
+            <div class="header w-100 p-0">
                 <div class="d-flex w-75 align-items-center">
                     <div class="logo">
                         <NuxtImg src="/img/logo_sm1_darkmode.png" alt="ТБК1 логотип" height="20px"/>
@@ -26,22 +27,22 @@
 
             <!-- Benefits -->
             <div class="v-flex d-sm-flex benefits f1 w-100 w-lg-75 w-xl-50">
-                <div class="thin-1">Від 2 тижднів<div class="separator mt-2"></div></div>
-                <div class="thin-1">Від 5000 грн<div class="separator mt-2"></div></div>
-                <div class="thin-1">Гарантія від 5 років<div class="separator mt-2"></div></div>
-                <div class="thin-1">По договору<div class="separator mt-2"></div></div>
+                <div class="thin-1">{{ $t('Від 1 тижня') }}<div class="separator mt-2"></div></div>
+                <div class="thin-1">{{ $t('Від 5000 грн') }}<div class="separator mt-2"></div></div>
+                <div class="thin-1">{{ $t('Гарантія від 5 років') }}<div class="separator mt-2"></div></div>
+                <div class="thin-1">{{ $t('За договором') }}<div class="separator mt-2"></div></div>
             </div>
 
             <!-- Key slogan -->
-            <div class="slogan">
+            <div class="slogan w-100">
                 <div class="">
-                    <h1>ВИГОТОВИМ БУДЬ-ЯКУ КОНСТРУКЦІЮ З МЕТАЛУ</h1>
+                    <h1>{{ $t('ВИГОТОВИМ БУДЬ-ЯКУ КОНСТРУКЦІЮ З МЕТАЛУ')}}</h1>
                 </div>
-                <div class="f1">Для  приватних будинків, котеджних містечок, комерційних підприємств</div>
+                <div class="f1">{{ $t('Для приватних будинків, котеджних містечок, комерційних підприємств')}}</div>
             </div>
 
             <!-- Action button -->
-            <button class="action-button big-button f-2 bold-3 mb-3">ОТРИМАТИ БЕЗКОШТОВНУ КОНСУЛЬТАЦІЮ</button>
+            <button class="action-button big-button f1 bold-3 mb-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop">{{ $t('Отримати консультацію')}}</button>
         </div>
 
     </div>
@@ -51,10 +52,11 @@
 <script>
     import LangSelector from '~/components/langselector.vue'
     import SideMenu from '~/components/sidemenu.vue'
+    import ModalFeedback from '~/components/modal_feedback.vue'
 
     export default {
         components: {
-            LangSelector, SideMenu
+            LangSelector, SideMenu, ModalFeedback
         },
         props: {
             header: {
@@ -63,6 +65,23 @@
 				default: {},
 			}
         },
+        methods: {
+            sendTelegramNotification: async function(phone) {
+                const response = await fetch('https://api.telegram.org/bot7736147378:AAHajsSsiWUjCPvudsyBY1FCou4bvDhsFbs/sendMessage', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        chat_id: 520701986,
+                        text: `Заказ звонка на номер: ${phone}`
+                    })
+                });
+
+                console.log('tm answer', response.json);                
+                return response.json;
+            }
+        }
     }
 </script>
 
@@ -119,9 +138,9 @@
             max-width: 75%;
         }
 
-        .action-button {
-            max-width:25rem;
-        }
+        // .action-button {
+        //     max-width:25rem;
+        // }
 
     }
 
