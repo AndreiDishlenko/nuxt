@@ -101,7 +101,7 @@
                         <div class="w-100 w-lg-50 ps-lg-4 d-flex pb-4">
                             <div class="pe-4"><NuxtImg src="/img/services/stairs.png" layout="intrinsic"/></div>
                             <div class="text-justify">
-                                <h3>{{ $t('Сходи')}}</h3>
+                                <h3>{{ $t('Сходи, майданчики')}}</h3>
                                 {{ $t('shodi_desc') }}
                             </div>
                         </div>
