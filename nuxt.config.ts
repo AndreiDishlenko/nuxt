@@ -35,6 +35,10 @@ export default defineNuxtConfig({
             tg:  process.env.TG
         },
     },
+    nitro: {
+        logLevel: 4,
+        debug: true,
+    },
     // build: {
     //     parallel: false,
     //     cache: false, // Отключение кэша для избежания конфликтов

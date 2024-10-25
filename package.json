@@ -4,13 +4,14 @@
   "type": "module",
   "scripts": {
     "start": "node .output/server/index.mjs",
-    "build": "set NODE_OPTIONS=--disable-warning=DEP0155 --disable-warning=DEP0166 --max-old-space-size=2048 && nuxt build",
+    "build": "set NODE_OPTIONS=--disable-warning=DEP0155 --disable-warning=DEP0166 && nuxt build --verbose",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@iconify-json/emojione": "^1.2.0",
     "@iconify-json/logos": "^1.2.3",
     "@iconify-json/material-symbols-light": "^1.2.5",
     "@iconify-json/ri": "^1.2.2",
@@ -24,11 +25,8 @@
     "sass-embedded": "^1.79.4"
   },
   "dependencies": {
-    "@devindex/vue-mask": "^2.0.3",
-    "@iconify-json/emojione": "^1.2.0",
     "swiper": "^11.1.14",
     "vee-validate": "^4.14.4",
-    "vue-the-mask": "^0.11.1",
-    "yup": "^1.4.0"
+    "vue-the-mask": "^0.11.1"
   }
 }
