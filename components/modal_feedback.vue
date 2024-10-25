@@ -12,7 +12,7 @@
                     <Form @submit="onSubmit" v-if="is_askmode">
                         <div class="form-group mb-4">
                             <label for="username" class="form-label">Ваше ім'я:</label>
-                            <input ref="autofocuselement" type="text" name="username" v-model="name" class="form-control" :rules="validateName"/>
+                            <Field ref="autofocuselement" type="text" name="username" v-model="name" class="form-control" :rules="validateName"/>
                             <ErrorMessage class="form-error" name="username" />
                         </div>
                         <div class="form-group mb-4">
