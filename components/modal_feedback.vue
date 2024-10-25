@@ -9,10 +9,12 @@
 
                     <button type="submit" class="btn btn-primary-outline closebutton" data-bs-dismiss="modal">x</button>
 
-                    <Form @submit="onSubmit" v-if="is_askmode">
+                    <Form v-if="is_askmode" ref="form" @submit="onSubmit"  @reset.prevent>
+
+
                         <div class="form-group mb-4">
                             <label for="username" class="form-label">Ваше ім'я:</label>
-                            <Field ref="autofocuselement" type="text" name="username" v-model="name" class="form-control" :rules="validateName"/>
+                            <Field ref="usernameRef" type="text" name="username" v-model="name" class="form-control" :rules="validateName"/>
                             <ErrorMessage class="form-error" name="username" />
                         </div>
                         <div class="form-group mb-4">
@@ -35,9 +37,9 @@
                     </Form>
 
                     <Form v-if="!is_askmode">
-                        Заявку надіслано.<br>
-                        Ми зв'яжемось з Вами найближчим часом.<br><br>
-                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Закрити</button>
+                        {{ $t('Заявку надіслано.')}}<br>
+                        {{ $t('Ми зв\'яжемось з Вами найближчим часом.')}}<br><br>
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">{{('Закрити')}}</button>
                     </Form>
 
                 </div>
@@ -51,7 +53,7 @@
 </script>
 
 <script>
-    import { Form, Field, ErrorMessage } from 'vee-validate';
+    import { Form, Field, ErrorMessage  } from 'vee-validate';
 
     export default {
         components: { Form, Field, ErrorMessage },
@@ -78,19 +80,19 @@
         mounted() {
             var myModal = document.getElementById('staticBackdrop');
             var $this = this;
-            console.log('rr', this.$refs);
             
             myModal.addEventListener('show.bs.modal', function () {
                 $this.phone='';
                 $this.description='';
+                $this.$refs.form.resetForm();
             });
             myModal.addEventListener('shown.bs.modal', function () {
-                $this.$refs.autofocuselement.focus();  
+                $this.$refs.usernameRef.$el.focus();
             });
         },
         methods: {
             onSubmit: async function() {
-                const response = await fetch(process.env.url+'/api/userform', {
+                const response = await fetch(useRuntimeConfig().public.apiUrl+'/api/userform', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -124,17 +126,17 @@
                 
                 return true;
             },
-            validateEmail: function(value) {
-                if (!value) 
-                    return '* Обов\'язково до заповнення';
+            // validateEmail: function(value) {
+            //     if (!value) 
+            //         return '* Обов\'язково до заповнення';
                 
-                const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-                if (!regex.test(value)) {
-                    return '* Не коректний e-mail';
-                }
+            //     const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+            //     if (!regex.test(value)) {
+            //         return '* Не коректний e-mail';
+            //     }
                 
-                return true;
-            },
+            //     return true;
+            // },
         }
     }
 </script>

@@ -3,14 +3,14 @@
     <div class="squeeze d-flex bg-light">
         <div v-if="stage==0" class="w-50 d-none d-md-block leftpart"></div>
         <div class="w-100 rightpart v-flex justify-content-between p-5" :class="[
-            stage>0 ? 'w-100' : '',
+            stage==0 ? 'w-lg-50' : '',
         ]">
             <h3 v-if="stage<4" class="mb-3">{{ $t('УТОЧНИМО ДЕТАЛІ ПРОЄКТУ?')}}</h3>
             <p v-if="stage==0" class="h-100">{{ $t('Дайте відповідь на кілька запитань, і отримайте консультацію та розрахунок вартості  того ж дня.')}}</p>
 
             <!-- Select object -->
-            <div v-if="stage==1" class="squeeze-options v-flex pb-4">
-                <div class="pb-4">{{ $t('Ваш об\'єкт:') }}</div>
+            <div v-if="stage==1" class="squeeze-options v-flex pb-2">
+                <div class="pt-2 pb-3">{{ $t('Ваш об\'єкт:') }}</div>
                 <div v-for="object in objects" class="form-group">
                     <div class="form-check">
                         <label class="form-check-label" for="flexCheckDefault">{{ $t(object.name) }}</label>
@@ -20,8 +20,8 @@
             </div>
 
             <!-- Select product -->
-            <div v-if="stage==2" class="squeeze-options v-flex pb-4">
-                <div class="pb-2">{{ $t('Який виріб потрібно:') }}</div>
+            <div v-if="stage==2" class="squeeze-options v-flex pb-2">
+                <div class="pt-2 pb-3">{{ $t('Оберіть виріб, який вам потрібно:') }}</div>
                 <div v-for="(product, index) in products" class="form-group">
                     <div class="form-check">
                         <label class="form-check-label" for="flexCheckDefault">{{ $t(product.name) }}</label>
@@ -31,85 +31,70 @@
             </div>
 
             <!-- Contacts -->
-            <div v-if="stage==3" class="squeeze-options v-flex ">
-                <Form @submit="onSubmit" class="v-flex justify-content-between h-100">
-                    <div class="form-group mb-4">
-                        <label for="username" class="form-label">Ваше ім'я:</label>
-                        <Field ref="autofocuselement" type="text" name="username" v-model="name" class="form-control" :rules="validateName"/>
-                        <ErrorMessage class="form-error" name="username" />
-                    </div>
-                    <div class="form-group mb-4">
-                        <label for="phone" class="form-label">Телефон для зв'язку:</label>
-                        <Field type="text" name="phone" v-model="phone" class="form-control" :rules="validatePhone"
-                            mask="'(0##) ###-##-##'"
-                            masked="false"
-                            v-mask="'(0##) ###-##-##'"
-                            placeholder="(0xx) xxx-xx-xx"
-                        />
-                        <ErrorMessage class="form-error" name="phone" />
+            <div class="squeeze-options v-flex ">
+                <Form v-if="stage==3" @submit="onSubmit" class="v-flex justify-content-between h-100">
+
+                    <div class="flex-grow-1 v-flex v-center mb-3">
+                        <div class="form-group mb-4 w-100">
+                            <label for="username" class="form-label">Ваше ім'я:</label>
+                            <Field ref="usernameRef" type="text" name="username" v-model="name" class="form-control" :rules="validateName"/>
+                            <ErrorMessage class="form-error" name="username" />
+                        </div>
+                        <div class="form-group mb-4 w-100">
+                            <label for="phone" class="form-label">Телефон для зв'язку:</label>
+                            <Field type="text" name="phone" v-model="phone" class="form-control" :rules="validatePhone"
+                                mask="'(0##) ###-##-##'"
+                                masked="false"
+                                v-mask="'(0##) ###-##-##'"
+                                placeholder="(0xx) xxx-xx-xx"
+                            />
+                            <ErrorMessage class="form-error" name="phone" />
+                        </div>
                     </div>
 
-                    <div  class="flex-grow-1"></div>
-
-                    <button type="submit" class="float-end px-5">{{ $t('Далі..')}}</button>
+                    <div class="text-center pt-1">
+                        <button type="submit" class="px-5">{{ $t('Надіслати')}}</button>
+                    </div>
+                    
                 </Form>
                 <div class="flex-grow-1"></div>            
             </div>
 
             <!-- Finish message -->
             <div v-if="stage==4" class="squeeze-options v-flex justify-content-center align-items-center h-100">
-                {{ $t('Запит відправлено') }}
+                <div class="d-flex">
+                    <Icon name="emojione-v1:white-heavy-check-mark" class="mx-3" size="3rem"/>
+                    <div class="">
+                        {{ $t('Заявку надіслано.')}}<br>
+                        {{ $t('Ми зв\'яжемось з Вами найближчим часом.')}}
+                    </div>
+                </div>
+
             </div>
 
             <div v-if="stage<3" class="flex-grow-1"></div> 
 
-            <div v-if="stage<3" class="">
-                <button class="float-end px-5" @click="nextStage">{{ $t('Далі..')}}</button>
+            <div v-if="stage<3" class="d-flex">
+                <div class="form-error w-100">{{ formerror }}</div>
+                <div class="">
+                    <button class="float-end px-5" @click="nextStage">{{ $t('Далі..')}}</button>
+                </div>
+                
             </div>
         </div>
-        
-        <!-- <div v-if="stage>0 && stage<3" class="w-50 v-flex h-100 p-5">
-            <div class="flex-grow-1"></div> 
-
-            <div class="">
-                <button class="float-end px-5" @click="nextStage">{{ $t('Далі..')}}</button>
-            </div>
-        </div> -->
 
     </div>
 
 </template>
 
 <script>
-    import { Form, Field, ErrorMessage, useField, useForm } from 'vee-validate';
-
+    import { Form, Field, ErrorMessage } from 'vee-validate';
+    import { ref } from 'vue';
     export default {
         components: { Form, Field, ErrorMessage },
-        setup() {
-            const { handleSubmit } = useForm();
-
-            // Определение правил валидации
-            const emailRules = yup.string().email('Неверный email').required('Email обязателен');
-
-            // Ссылка на поле
-            const emailRef = ref(null);
-
-            // Обработка отправки формы
-            const submitForm = handleSubmit((values) => {
-                console.log(values);
-                console.log('Доступ к полю через ref:', emailRef.value); // Доступ через ref
-            });
-
-            return {
-                emailRef,
-                emailRules,
-                submitForm,
-            };
-        },
         data: function() {
             return {
                 stage: 0,
-
                 objects: [
                     {name:'Приватний будинок', value:false},
                     {name:'Житловий комплекс', value:false},
@@ -117,7 +102,6 @@
                     {name:'Торгівельні приміщення', value:false},
                     {name:'Інше', value:false}
                 ],
-                // selected_obects: [false, false, false, false, false],
                 products: [
                     {name:'Фасад', value:false},
                     {name:'Навіс', value:false},
@@ -128,36 +112,26 @@
                 ],
                 name: '',
                 phone: '',
-                nameField: null
+                formerror: ''
             }
         },
         mounted() {
-            // if (process.client) {
-            //     const element = ref(null);
-
-                // const observer = new IntersectionObserver((entries) => {
-                //     if (entries[0].isIntersecting) {
-                //         console.log("Элемент показан на экране");
-                //     }
-                // });
-
-                // observer.observe(this.$refs.element);
-            // }
         },
         methods: {			
             nextStage: async function() {  
-                             
-                if (this.stage==3) {
-                }
+                if (this.stage==1 && !this.validateObjects()) 
+                    return false;
+
+                if (this.stage==2 && !this.validateProducts()) 
+                    return false;
 
                 this.stage++;
 
                 if (this.stage==3) 
                     this.$nextTick(() => {
-                        this.$refs.autofocuselement.focus();
+                        this.$refs.usernameRef.$el.focus();
                     });
 
-                console.log(this.$refs)
             },
             onSubmit: async function() {
                 let description = '';
@@ -172,7 +146,7 @@
                         description = description + product.name + ', ';
                 });
 
-                const response = await fetch(process.env.url+'/api/userform', {
+                const response = await fetch(useRuntimeConfig().public.apiUrl+'/api/userform', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -183,12 +157,48 @@
                         description: description
                     })
                 });
+
+                if (response.ok)
+                    this.stage++;
+                return true;
             },
+
+            validateObjects: function() {
+                let result = false;
+                this.objects.forEach(t => {
+                    if (t.value)
+                        result = true;
+                });
+
+                if ( !result ) {
+                    this.formerror = this.$t('* Оберіть ваш об\'єкт');
+                    return false;
+                }
+
+                this.formerror = '';
+                return true;
+            },
+            validateProducts: function() {
+                let result = false;
+                this.products.forEach(t => {
+                    if (t.value)
+                        result = true;
+                });
+
+                if ( !result ) {
+                    this.formerror = this.$t('* Оберіть виріб, який вам потрібно');
+                    return false;
+                }
+                
+                this.formerror = '';
+                return true;
+            },
+
             validateName: function(value) {
                 console.log('validatename');
 
                 if (!value) 
-                    return '* Обов\'язково до заповнення';
+                    return this.$t('* Обов\'язково до заповнення');
                 
                 return true;
             },
@@ -196,11 +206,11 @@
                 console.log('validate phone');
 
                 if (!value) 
-                    return '* Обов\'язково до заповнення';
+                    return this.$t('* Обов\'язково до заповнення');
                 
                 const regex = /^\(\d{3}\) \d{3}-\d{2}-\d{2}$/;
                 if (!regex.test(value)) {
-                    return '* Не коректний номер телефону';
+                    return this.$t('* Не коректний номер телефону');
                 }
                 
                 return true;
@@ -217,6 +227,7 @@
         min-height: 400px;
         .leftpart {
             background-image: url('/img/squeeze_background.png'); 
+            background-size: cover;
             border-radius: 1.5rem 0rem 0rem 1.5rem;
         }
 

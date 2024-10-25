@@ -126,3 +126,15 @@
       width: 100% !important;
     }
 }
+
+@media (max-width: 768px) {
+	.transformer {
+		flex-direction: column!important;
+	}
+}
+
+@media (max-width: 1200px) {
+	.transformer-xl {
+		flex-direction: column!important;
+	}
+}

@@ -7,7 +7,9 @@
                     <Icon name="ri:telegram-2-line" size="1em" class="me-1"/>{{ $t('Київ')}}
                 </div>
                 <div class="flex-grow-2 d-none d-lg-block text-center f-2">{{ $t('Більш ніж 5 років ми виробляємо ті самі конструкції з металу, які всім потрібні')}}</div>
-                <div class="flex-grow-1 bold-1 text-end flex-grow-1">+38(050) 011-31-14</div>
+                <div class="flex-grow-1 bold-1 text-end flex-grow-1">
+                    <a :href="'tel:'+useRuntimeConfig().public.phone" class="dark pb-0 f3 bold-3">{{ useRuntimeConfig().public.phone }}</a>
+                </div>
             </div>
         </div>
         <div class="menu-line f-3">
@@ -81,7 +83,7 @@
         border-bottom-left-radius: variables.$blocks-radius;   
         border-bottom-right-radius: variables.$blocks-radius;   
         a {
-            color: black!important;
+            // color: black!important;
             font-weight: 600;
         }
         .top-line {

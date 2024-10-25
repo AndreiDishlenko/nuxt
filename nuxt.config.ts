@@ -13,21 +13,34 @@ export default defineNuxtConfig({
         //     cert: './.osp/localhost-cert.crt',  // Путь к вашему сертификату
         // },
     },
+    vite: {
+        css: {
+            preprocessorOptions: {
+                scss: {
+                    api: 'modern',
+                    additionalData: `@use "@/assets/styles/variables";`
+                },
+            },
+        },
+    }, 
+    runtimeConfig: {
+        // Server vars
+        TELEGRAM_TOKEN: process.env.TELEGRAM_TOKEN,
+        TELEGRAM_CHAT_ID: process.env.TELEGRAM_CHAT_ID,
+        // Client vars
+        public: {
+            apiUrl: process.env.URL,
+            phone: process.env.PHONE,
+            email: process.env.EMAIL,
+            tg:  process.env.TG
+        },
+    },
     // build: {
     //     parallel: false,
     //     cache: false, // Отключение кэша для избежания конфликтов
     //     hardSource: false, // Может помочь избежать конфликтов с памятью
     // },
-    vite: {
-        css: {
-          preprocessorOptions: {
-            scss: {
-                api: 'modern',
-                additionalData: `@use "@/assets/styles/variables";`
-            },
-          },
-        },
-    }, 
+
     // image: {
     //     provider: 'ipx', // провайдер IPX
     //     ipx: {
@@ -55,11 +68,11 @@ export default defineNuxtConfig({
         }
     },
     icon: {
-        size: '24px', // default <Icon> size applied    
-        class: 'icon', // default <Icon> class applied
-        mode: 'css', // default <Icon> mode applied
+        size: '24px', 
+        class: 'icon',
+        mode: 'css',
         serverBundle: {
-            collections: ['ri', 'stash', 'material-symbols-light', 'emojione', 'logos'] // <!--- this
+            collections: ['ri', 'stash', 'material-symbols-light', 'emojione', 'logos']
         }
         // aliases: {
         //   'nuxt': 'logos:nuxt-icon',
@@ -72,7 +85,6 @@ export default defineNuxtConfig({
         // ],
     },
     i18n: {
-        // baseUrl: 'https://tbk1.com.ua', // ! It necessary
         baseUrl: process.env.URL, 
         strategy: 'prefix_except_default', 
         lazy: true,

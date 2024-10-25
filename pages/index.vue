@@ -177,22 +177,44 @@
                 <SqueezeBlock/>
             </div>
 
-            <div class="v-flex d-md-flex align-items-center justify-content-between container text-white-75 border-bottom border-grey py-4 text-light">
-                <div class="logo py-2">
-                    <NuxtImg src="/img/logo_sm1_darkmode.png" alt="ТБК1 логотип" height="15px"/>
+            <!-- Contacts -->
+            <div class="container d-flex transformer justify-content-between align-items-center align-items-md-start main-color-darkmode border-bottom border-grey pt-4 pb-5 pb-md-3">
+                <!-- Phones -->
+                <div class="v-flex align-items-center align-items-md-start pe-md-5">
+                    <div class="d-flex">
+                        <a :href="'tel:'+useRuntimeConfig().public.phone" class="dark pb-0 f3 bold-3 pe-3">{{ useRuntimeConfig().public.phone }}</a>
+                        <a :href="'tg://resolve?domain='+useRuntimeConfig().public.tg" target="_blank" class="lh-1">
+                            <Icon class="" name="logos:telegram"/>
+                        </a>
+                    </div>
+                    <p class="f-3 text-white-50">Всі дзвінки згідно тарифного<br> плану вашого оператора</p>
                 </div>
-                <div class="phone py-2">+38 (050) 011-31-14</div>
-                <div class="email py-2">support@tbk1.com.ua</div>
-                <div class="py-2">
+                <!-- Email -->
+                <div class="v-flex align-items-center align-items-md-start pe-md-5">
+                    <a :href="'mailto:'+useRuntimeConfig().public.email" class="dark pb-0 f3 bold-3">{{ useRuntimeConfig().public.email }}</a>
+                    <p class="f-3 text-white-50">Написати нам</p>
+                </div>
+                <div class="v-flex align-items-center align-items-md-start pe-md-5">
+                    <p class="dark pb-0 mb-0 f3 bold-3">Пн-Пт з 9:00 до 19:00</p>
+                    <p class="f-3 text-white-50">Графік роботи</p>
+                </div>
+                <div class="d-flex transformer align-items-center mb-3">
+                    <p class="pe-0 pe-md-3 mb-2 mb-md-0">Маєте запитання?</p>
                     <button class="text-uppercase f-4 bold-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">{{ $t('Залишити заявку')}}</button>
                 </div>
-                <Icon class="d-none d-md-block py-2" name="logos:telegram"/>
             </div>
 
-            <div class="f-1 text-center container py-4 text-white-50 text-light">
-                {{ $t('Усі права захищені © 2016-2022 ТОВ «ТБК-1» - виготовлення мтеалоконструкцій на замовлення в Києві')}}<br>
-                {{ $t('Розробка та створення сайту - Personal Solutions Ltd')}}
+            <!-- Copyrights -->
+            <div class="container d-flex transformer align-items-center w-100">
+                <div class="logo mt-4 mt-md-0">
+                    <NuxtImg src="/img/logo_sm1_darkmode.png" alt="ТБК1 логотип" height="15px"/> 
+                </div>
+                <div class="f-3 text-center container py-4 text-white-50 text-light">
+                    {{ $t('Усі права захищені © 2016-2022 ТОВ «ТБК-1» - виготовлення мтеалоконструкцій на замовлення в Києві')}}<br>
+                    {{ $t('Розробка та створення сайту - Personal Solutions Ltd')}}
+                </div>
             </div>
+
         </div>
         
     </div>
@@ -252,7 +274,6 @@
             }
         },
         mounted: function() {
-            console.log('mounted');
         },
         unmounted: function() {
             // console.log('unmounted');
@@ -263,8 +284,6 @@
 </script>
 
 <style lang="scss">
-    // @use '@/assets/styles/variables';
-
     .wrapper {
         border-radius: variables.$wrapper-radius;
         margin: variables.$wrapper-spacing;
